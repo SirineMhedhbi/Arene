@@ -10,5 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_09_074809) do
+  create_table "battles", force: :cascade do |t|
+    t.integer "winner"
+    t.integer "loser"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp"
+    t.integer "attack"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "character_id"
+  end
+
+  create_table "shields", force: :cascade do |t|
+    t.string "name"
+    t.float "damage_reduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "character_id"
+  end
+
+  create_table "weapons", force: :cascade do |t|
+    t.string "name"
+    t.integer "damage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "character_id"
+  end
+
+  add_foreign_key "shields", "characters"
+  add_foreign_key "weapons", "characters"
 end

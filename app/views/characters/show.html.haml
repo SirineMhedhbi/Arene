@@ -1,0 +1,21 @@
+.container
+  %p#notice= notice
+  .row
+    .col-md-4
+      %h6 Name:
+      %p= @character.name
+  .row
+    .col-md-4
+      %h6 Points de vie:
+      %p= @character.hp
+
+  .row
+    .col-md-4
+      %h6 Points d'attaque:
+      %p= @character.attack
+
+  .row
+    .col-md-6
+      = link_to 'Edit', edit_character_path(@character), class: 'btn btn-primary'
+      = link_to 'Back', characters_path, class: 'btn btn-secondary'
+

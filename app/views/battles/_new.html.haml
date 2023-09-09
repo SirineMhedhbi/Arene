@@ -1,0 +1,11 @@
+= form_with url: battles_path, method: :post do |form|
+  .form-group
+    = form.label :character1_id, "Premier personnage"
+    = form.select :character1_id, options_for_select(@characters.all.map { |character| [character.name, character.id] }), { prompt: 'Sélectionner le premier personnage' }, class: 'form-select', 'aria-label' => 'Premier personnage'
+  .mb-3
+  .form-group
+    = form.label :character2_id, "Deuxième personnage"
+    = form.select :character2_id, options_for_select(@characters.all.map { |character| [character.name, character.id] }), { prompt: 'Sélectionner le deuxième personnage' }, class: 'form-select', 'aria-label' => 'Deuxième personnage'
+  .mb-3
+  .form-group
+    = form.submit "Commencer le combat", class: 'btn btn-primary'
