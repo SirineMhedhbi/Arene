@@ -1,0 +1,18 @@
+.container
+  %p#notice= notice
+
+  .row
+    .col-md-4
+      %h6 Name:
+      %p= @weapon.name
+  .row
+    .col-md-4
+      %h6 Points de vie:
+      %p= @weapon.damage
+
+
+  .row
+    .col-md-6
+      = link_to 'Edit', edit_weapon_path(@weapon), class: 'btn btn-primary'
+      = link_to 'Back', weapons_path, class: 'btn btn-secondary'
+

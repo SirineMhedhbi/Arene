@@ -1,0 +1,17 @@
+.container
+  %p#notice= notice
+
+  .row
+    .col-md-4
+      %h6 Name:
+      %p= @shield.name
+  .row
+    .col-md-4
+      %h6 Points de vie:
+      %p= @shield.damage_reduction
+
+
+  .row
+    .col-md-6
+      = link_to 'Edit', edit_shield_path(@shield), class: 'btn btn-primary'
+      = link_to 'Back', shields_path, class: 'btn btn-secondary'

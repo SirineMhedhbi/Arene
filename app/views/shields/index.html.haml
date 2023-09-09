@@ -1,0 +1,22 @@
+.container
+  %h1 Liste des boucliers
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Nom
+        %th Réduction de dégats
+        %th Actions
+
+    %tbody
+      - @shields.each do |shield|
+        %tr
+          %td= shield.name
+          %td= shield.damage_reduction
+          %td
+            = link_to 'Voir', shield, class: 'btn btn-primary'
+            = link_to 'Modifier', edit_shield_path(shield), class: 'btn btn-secondary'
+            = form_with(model: shield, method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline') do |form|
+              = form.submit 'Supprimer', class: 'btn btn-danger'
+  %br
+
+  = link_to 'Noveau Bouclier', new_shield_path, class: 'btn btn-success'

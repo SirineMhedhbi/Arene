@@ -1,0 +1,19 @@
+.container
+  = form_for @shield, html: { class: 'form' } do |f|
+    - if @shield.errors.any?
+      .alert.alert-danger
+        %h4= "#{pluralize(@shield.errors.count, "error")} prohibited this shield from being saved:"
+        %ul
+          - @shield.errors.full_messages.each do |message|
+            %li= message
+
+    .mb-3
+      = f.label :Nom, class: 'form-label'
+      = f.text_field :name, class: 'form-control'
+    .mb-3
+      = f.label :"Réduction de dégats", class: 'form-label'
+      = f.text_field :damage_reduction, class: 'form-control'
+    .mb-3
+      = f.submit 'Valider', class: 'btn btn-primary'
+    = link_to 'Retour à la liste des boucliers', shields_path, class: "btn btn-secondary"
+

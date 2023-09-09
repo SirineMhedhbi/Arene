@@ -1,0 +1,20 @@
+.container
+  %h1 Liste des armes
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Nom
+        %th Dégâts
+        %th Actions
+    %tbody
+      - @weapons.each do |weapon|
+        %tr
+          %td= weapon.name
+          %td= weapon.damage
+          %td
+            = link_to 'Voir', weapon, class: 'btn btn-primary'
+            = link_to 'Modifier', edit_weapon_path(weapon), class: 'btn btn-secondary'
+            = form_with(model: weapon, method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline') do |form|
+              = form.submit 'Supprimer', class: 'btn btn-danger'
+
+  = link_to 'Nouvelle arme', new_weapon_path, class: "btn btn-success"

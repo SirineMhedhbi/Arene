@@ -1,0 +1,32 @@
+.container
+  %h1 Liste des personnes
+  %table.table.table-striped
+    %thead
+      %tr
+        %th{ scope: "col" } #
+        %th{ scope: "col" } Nom
+        %th{ scope: "col" } Points de vie
+        %th{ scope: "col" } Points d'attaque
+        %th Actions
+
+
+    %tbody
+      - @characters.each do |character|
+        %tr
+          %th{ scope: "row" }
+            = character.id
+          %td
+            = character.name
+          %td 
+            = character.hp
+          %td 
+            = character.attack
+          %td
+            = link_to 'Voir', character, class: 'btn btn-primary'
+            = link_to 'Modifier', edit_character_path(character), class: 'btn btn-secondary'
+            = form_with(model: character, method: :delete, data: { confirm: 'Are you sure?' }, class: 'd-inline') do |form|
+              = form.submit 'Supprimer', class: 'btn btn-danger'
+
+
+  = link_to 'Nouveau personnage', new_character_path, class: "btn btn-success"
+// ajouter pagination
