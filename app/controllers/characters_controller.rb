@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
   end
 
   def index
-    @characters = Character.all
+    @characters = Character.paginate(page: params[:page], per_page: 10)
     render 'characters/index'
   end
 
@@ -53,6 +53,6 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :hp, :attack, :exp)
+    params.require(:character).permit(:name, :hp, :attack, :exp, :avatar)
   end
 end

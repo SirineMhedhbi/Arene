@@ -14,4 +14,5 @@
                     %td= battle.winner.name
                     %td= battle.loser.name
 
+    = will_paginate @battles
     = link_to "Retour à l'arène", root_path, class: 'btn btn-primary'

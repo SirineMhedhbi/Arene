@@ -39,11 +39,11 @@ class BattlesController < ApplicationController
     end
 
     def statistics
-      @characters = Character.all
+      @characters = Character.paginate(page: params[:page], per_page: 10)
     end
 
     def history
-      @battles = Battle.all.order(created_at: :desc)
+      @battles = Battle.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
     end
 
     private
