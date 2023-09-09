@@ -1,0 +1,20 @@
+.container 
+    %h1 Taux de victoire et de perte par personnage
+
+    %table.table
+        %thead
+            %tr
+            %th Personnage
+            %th Taux de victoire
+            %th Taux de perte
+            %th Nombre de combats
+            
+        %tbody
+            - @characters.each do |character|
+                %tr
+                    %td= character.name
+                    %td= character.win_rate
+                    %td= character.lose_rate
+                    %td= character.total_battles
+
+    = link_to 'Retour à la liste des personnages', characters_path, class: 'btn btn-primary'
