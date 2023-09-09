@@ -1,0 +1,17 @@
+.container
+    %h1 Historique des combats
+
+    %table.table.table-striped
+        %thead
+            %tr
+            %th Date du combat
+            %th Gagnant
+            %th Perdant
+        %tbody
+            - @battles.each do |battle|
+                %tr
+                    %td= battle.created_at.strftime("%d/%m/%Y %H:%M:%S")
+                    %td= battle.winner.name
+                    %td= battle.loser.name
+
+    = link_to "Retour à l'arène", root_path, class: 'btn btn-primary'

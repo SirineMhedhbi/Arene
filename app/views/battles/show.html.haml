@@ -1,0 +1,16 @@
+.container
+    %h1 Résultats du combat
+
+    %table.table.table-bordered.table-striped
+        %thead
+            %tr
+            %th Gagnant
+            %th Perdant
+            %th Date
+        %tbody
+            %tr
+            %td= @battle.winner.name
+            %td= @battle.loser.name
+            %td= @battle.created_at
+
+    = link_to 'Voir la liste des combats', history_battles_path, class: 'btn btn-primary'

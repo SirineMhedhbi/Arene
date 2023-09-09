@@ -7,12 +7,14 @@ Rails.application.routes.draw do
  
   resources :characters do
     post 'fight', on: :collection
-    get 'battle_history', on: :collection
   end
 
   resources :weapons 
 
-  resources :battles, only: [:new, :create, :show, :index]
-
-  
+  resources :battles, only: [:new, :create, :show, :index] do
+    collection do
+      get 'history'
+      get 'statistics'
+    end
+  end
 end
