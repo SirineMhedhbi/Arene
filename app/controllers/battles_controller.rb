@@ -10,14 +10,25 @@ class BattlesController < ApplicationController
       @character1 = Character.find(params[:character1_id])
       @character2 = Character.find(params[:character2_id])
 
-      @weapon1 = Weapon.find(params[:weapon1_id])
-      @weapon2 = Weapon.find(params[:weapon2_id])
+      @weapon1 = Weapon.find(params[:weapon1_id]) if params[:weapon1_id].present?
+      @weapon2 = Weapon.find(params[:weapon2_id]) if params[:weapon2_id].present?
 
-      @shield1 = Shield.find(params[:shield1_id])
-      @shield2 = Shield.find(params[:shield2_id])
-
-      @character1.update(weapon: @weapon1, shield: @shield1)
-      @character2.update(weapon: @weapon2, shield: @shield2)
+      @shield1 = Shield.find(params[:shield1_id]) if params[:shield1_id].present?
+      @shield2 = Shield.find(params[:shield2_id]) if params[:shield2_id].present?
+      if (@weapon1.present? && @shield1.present?)
+        @character1.update(weapon: @weapon1, shield: @shield1)
+      elsif @weapon1.present?
+        @character1.update(weapon: @weapon1)
+      elsif @shield1..present?
+        @character1.update(shield: @shield1)
+      end
+      if (@weapon2.present? && @shield2.present?)
+        @character2.update(weapon: @weapon2, shield: @shield2)
+      elsif @weapon2.present?
+        @character2.update(weapon: @weapon2)
+      elsif @shield2.present?
+        @character2.update(shield: @shield2)
+      end
       results = battle(@character1, @character2)
       @battle = Battle.create(winner: results[0], loser: results[1])
 

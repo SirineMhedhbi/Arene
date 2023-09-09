@@ -7,6 +7,7 @@
         %th{ scope: "col" } Nom
         %th{ scope: "col" } Points de vie
         %th{ scope: "col" } Points d'attaque
+        %th{ scope: "col" } Points d'expérience
         %th Actions
 
 
@@ -21,6 +22,8 @@
             = character.hp
           %td 
             = character.attack
+          %td 
+            = character.exp
           %td
             = link_to 'Voir', character, class: 'btn btn-primary'
             = link_to 'Modifier', edit_character_path(character), class: 'btn btn-secondary'
