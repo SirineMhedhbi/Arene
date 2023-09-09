@@ -3,6 +3,7 @@ class WeaponsController < ApplicationController
 
     def index
       @weapons = Weapon.all
+      
     end
   
     def new
