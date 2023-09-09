@@ -19,6 +19,10 @@
       = form.number_field :attack, class: "form-control"
 
     .mb-3
+      = form.label :avatar, class: "form-label"
+      = form.file_field :avatar, class: "form-control"
+
+    .mb-3
       = form.submit 'Valider', class: "btn btn-primary"
 
   = link_to 'Retour', characters_path, class: "btn btn-secondary"

@@ -11,7 +11,7 @@ module BattlesHelper
     
         # Apply shield reduction
         if defender.shield 
-            damage -= defender.shield.damage_reduction
+            damage -= damage * defender.shield.damage_reduction / 100
         end
     
         # Ensure damage is non-negative

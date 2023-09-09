@@ -16,5 +16,6 @@
                     %td= character.win_rate
                     %td= character.lose_rate
                     %td= character.total_battles
-
+                    
+    = will_paginate @characters
     = link_to 'Retour à la liste des personnages', characters_path, class: 'btn btn-primary'
