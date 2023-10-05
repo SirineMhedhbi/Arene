@@ -51,7 +51,7 @@ Suivez ces étapes pour installer et exécuter l'application localement sur votr
 
    - Clonez ce dépôt en utilisant la commande Git suivante :
      ```
-     git clone https://github.com/SirineMhedhbi/Captain-contrat-test.git
+     git clone https://github.com/SirineMhedhbi/Arene.git
      ```
 
 3. **Installer les Dépendances :**
