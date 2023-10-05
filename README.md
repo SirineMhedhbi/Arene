@@ -1,7 +1,5 @@
 
 
-### Solution utilisée:
-
 # Application de Combat de Personnages
 
 Cette application permet aux personnages de s'affronter dans des combats en fonction de leurs points de vie, de leurs points d'attaque et de leurs points d'expérience. L'application utilise quatre modèles principaux pour gérer les personnages, les armes, les boucliers et les combats.
